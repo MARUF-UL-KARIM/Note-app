@@ -6,7 +6,7 @@ export default function App() {
   const [notesList, setNotesList] = useState([]);
 
   const addNote = () => {
-    if (note.length > 0) {
+    if (note.trim().length > 0) {
       setNotesList([...notesList, { id: Math.random().toString(), value: note }]);
       setNote('');
     }
@@ -26,6 +26,7 @@ export default function App() {
       </TouchableOpacity>
       <FlatList 
         data={notesList}
+        keyExtractor={(item) => item.id}
         renderItem={itemData => (
           <View style={styles.listItem}>
             <Text>{itemData.item.value}</Text>
@@ -37,10 +38,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 50 },
+  container: { padding: 50, flex: 1, backgroundColor: '#fff' },
   title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
-  input: { borderBottomColor: 'black', borderBottomWidth: 1, marginBottom: 10, padding: 8 },
-  button: { backgroundColor: '#2196F3', padding: 10, alignItems: 'center' },
+  input: { borderBottomColor: '#ccc', borderBottomWidth: 1, marginBottom: 10, padding: 8 },
+  button: { backgroundColor: '#2196F3', padding: 10, alignItems: 'center', borderRadius: 5 },
   buttonText: { color: 'white', fontWeight: 'bold' },
-  listItem: { padding: 10, marginVertical: 10, backgroundColor: '#eee', borderColor: 'black', borderWidth: 1 }
+  listItem: { padding: 10, marginVertical: 5, backgroundColor: '#f9f9f9', borderColor: '#ddd', borderWidth: 1, borderRadius: 5 }
 });
