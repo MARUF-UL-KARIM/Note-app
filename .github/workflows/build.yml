@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Build APK
-        run: npx eas-cli build -p android --profile preview --local --output=app-release.apk
+        run: npx eas-cli build -p android --profile preview --local --non-interactive --output=app-release.apk
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
