@@ -19,14 +19,13 @@ jobs:
         uses: expo/expo-github-action@v8
         with:
           expo-version: latest
-          eas-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Install dependencies
         run: npm install
 
       - name: Build APK
-        run: eas build -p android --profile preview --local --output=app-release.apk
+        run: npx eas-cli build -p android --profile preview --local --output=app-release.apk
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
