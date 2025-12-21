@@ -1,12 +1,10 @@
 {
-  "name": "demo-note-app",
+  "name": "note-app",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "android": "expo start --android"
   },
   "dependencies": {
     "expo": "~50.0.0",
